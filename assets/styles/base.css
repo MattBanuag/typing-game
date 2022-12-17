@@ -1,1 +1,8 @@
 @import './reset.css';
+/* = = = = = = = = = = = = = = = */
+/* BODY STYLES                   */
+/* = = = = = = = = = = = = = = = */
+body {
+    color: #FFF;
+    background-image: linear-gradient(to right top, #472183, #5d2e9d, #743ab7, #8c48d1, #a555ec);
+}
