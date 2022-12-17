@@ -1,1 +1,66 @@
 @import './base.css';
+/* = = = = = = = = = = = = = = = */
+/* WRAPPER                       */
+/* = = = = = = = = = = = = = = = */
+.wrapper {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+/* = = = = = = = = = = = = = = = */
+/* GAME CANVAS                   */
+/* = = = = = = = = = = = = = = = */
+.game-canvas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    width: 400px;
+    padding: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+/* == Word Box == */
+.word-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1.7rem;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.word-box p {
+    color: #59CE8F;
+}
+
+/* == Time Box == */
+.time-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+/* == Buttons Box == */
+.buttons-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.start-btn { background-color: #4BB543; }
+.restart-btn { background-color: #FEB139; }
+
+
+
+
+
