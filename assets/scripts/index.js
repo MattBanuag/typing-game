@@ -23,9 +23,12 @@ function timer(timeLeft) {
         timeDisplay.innerHTML = `<i class="fa-solid fa-clock"></i> ${--timeLeft} seconds`;
 
         if(timeLeft == 0) {
-            timeDisplay.innerText = 'Time\'s up';
+            timeDisplay.innerHTML = '<i class="fa-solid fa-clock"></i> 0 seconds';
+            wordDisplay.innerText = 'Time\'s up';
+            wordDisplay.style.color = '#FF1E00';
             startBtn.style.cursor = 'not-allowed';
             startBtn.disabled = true;
+            wordInput.disabled = true;
             clearInterval(timer);
         }
     }, 1000);
@@ -36,7 +39,7 @@ function validate() {
     onEvent('keyup', wordInput, () => {
         if(wordInput.value == randomWord) {
             wordInput.style.border = 'thin solid #4BB543';
-            pointsDisplay.innerText = `Points: ${points += 1}`;
+            pointsDisplay.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${points += 1}`;
             wordDisplay.innerText = randomWord = randomizer(words);
             wordInput.value = '';
         } else {
@@ -48,6 +51,8 @@ function validate() {
 // Start Game Function
 function startGame() {
     timer(timeLeft);
+    wordInput.disabled = false;
+    wordInput.focus();
     wordDisplay.innerText = randomWord;
 }
 
@@ -76,12 +81,20 @@ const words = [
     'famous', 'league', 'memory', 'leather', 'planet', 'software', 'update', 'yellow',
     'keyboard', 'window'
 ];
-let timeLeft = 3;
+
+// GAME SETUP
+let timeLeft = 10;
 let points = 0;
 let randomWord = randomizer(words);
+wordInput.disabled = true;
 
 // EVENT LISTENERS
 onEvent('click', startBtn, () => {
     startGame();
     validate();
+});
+
+onEvent('click', restartBtn, () => {
+    window.location.reload();
+    wordInput.value = '';
 });
