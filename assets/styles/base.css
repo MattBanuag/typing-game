@@ -7,6 +7,10 @@ body {
     background-image: linear-gradient(to right top, #472183, #5d2e9d, #743ab7, #8c48d1, #a555ec);
 }
 
+h1 {
+    font-size: 2.3rem;
+}
+
 div, input, button {
     border-radius: 8px;
 }
@@ -33,3 +37,45 @@ button {
     font-size: 1.2rem;
     color: #FFF;
 }
+
+dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    padding-inline: 35px;
+    border-radius: 6px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFF;
+    background-color: #181818;
+}
+
+dialog p {
+    font-size: 1.1rem;
+}
+
+dialog p+p {
+    font-weight: 700;
+    color: #4BB543;
+}
+
+dialog[open] {
+    animation: 0.75s slideDown linear;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        translate: 0 -20px;
+    } to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+
