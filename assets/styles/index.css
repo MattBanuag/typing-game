@@ -31,7 +31,7 @@
     width: 100%;
     height: 100px;
     padding: 10px;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     background-color: rgba(0,0,0,0.5);
 }
 
@@ -48,17 +48,22 @@
     font-size: 1.7rem;
 }
 
+/* == Points Box == */
+.points-box {
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
 /* == Buttons Box == */
 .buttons-box {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
 .start-btn { background-color: #4BB543; }
-.restart-btn { background-color: #FEB139; }
+.restart-btn { background-color: #FF1E00; }
 
 
 

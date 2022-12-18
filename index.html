@@ -25,20 +25,25 @@
         <main class="wrapper">
             <div class="game-canvas">
                 <div class="word-box">
-                    <p>Press "Start" to play</p>
+                    <p class="word-display"></p>
                 </div>
 
                 <div class="time-box">
-                    <p><i class="fa-regular fa-clock"></i> 100 seconds</p>
+                    <p class="time-display"><i class="fa-solid fa-clock"></i> 100 seconds</p>
+                </div>
+
+                <div class="points-box">
+                    <p class="points-display">Points: 0</p>
                 </div>
 
                 <form>
                     <input type="text" placeholder="Type here" class="word-input">
-                    <div class="buttons-box">
-                        <button class="start-btn">Start</button>
-                        <button class="restart-btn">Restart</button>
-                    </div>
                 </form>
+
+                <div class="buttons-box">
+                    <button class="start-btn">Start</button>
+                    <button class="restart-btn">Restart</button>
+                </div>
 
                 <article>
                     <p>&copy; Matthew Banuag</p>
