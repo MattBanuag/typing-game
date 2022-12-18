@@ -73,6 +73,7 @@ const pointsDisplay = select('.points-display');
 const startBtn = select('.start-btn');
 const restartBtn = select('.restart-btn');
 const wordInput = select('.word-input');
+const dialog = select('dialog');
 
 // WORD ARRAY
 const words = [
@@ -99,8 +100,19 @@ let points = 0;
 let randomWord = randomizer(words);
 wordInput.value = '';
 wordInput.disabled = true;
+dialog.showModal();
+
 
 // EVENT LISTENERS
+onEvent('click', dialog, function(event) {
+    const rect = this.getBoundingClientRect();
+
+    if(event.clientY < rect.top || event.clientY > rect.bottom || 
+      event.clientX < rect.left || event.clientX > rect.right) {
+        dialog.close();
+    }
+});
+
 onEvent('click', startBtn, () => {
     readySetGo(countdown);
 
