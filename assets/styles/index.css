@@ -50,6 +50,8 @@
 
 /* == Points Box == */
 .points-box {
+    padding: 10px;
+    background-color: rgba(0,0,0,0.3);
     font-weight: 700;
     font-size: 1.7rem;
 }
