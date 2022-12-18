@@ -35,7 +35,8 @@
     background-color: rgba(0,0,0,0.5);
 }
 
-.word-box p {
+.word-display {
+    font-weight: 700;
     color: #59CE8F;
 }
 

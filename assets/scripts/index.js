@@ -23,7 +23,6 @@ function timer(timeLeft) {
         timeDisplay.innerHTML = `<i class="fa-solid fa-clock"></i> ${--timeLeft} seconds`;
 
         if(timeLeft == 0) {
-            timeDisplay.innerHTML = '<i class="fa-solid fa-clock"></i> 0 seconds';
             wordDisplay.innerText = 'Time\'s up';
             wordDisplay.style.color = '#FF1E00';
             startBtn.style.cursor = 'not-allowed';
@@ -86,6 +85,7 @@ const words = [
 let timeLeft = 10;
 let points = 0;
 let randomWord = randomizer(words);
+wordInput.value = '';
 wordInput.disabled = true;
 
 // EVENT LISTENERS
