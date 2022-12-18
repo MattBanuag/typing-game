@@ -29,6 +29,17 @@ function readySetGo(countdown) {
     }, 1000);
 }
 
+// Save Result Function
+function saveData() {
+    const currentDate = new Date().toJSON().slice(0, 10);
+    const score = {
+        score: points,
+        date: currentDate
+    };
+
+    console.log(score);
+}
+
 // Running Timer Function
 function timer(timeLeft) {
     const timer = setInterval(() => {
@@ -40,6 +51,7 @@ function timer(timeLeft) {
             startBtn.style.cursor = 'not-allowed';
             startBtn.disabled = true;
             wordInput.disabled = true;
+            saveData();
             clearInterval(timer);
         }
     }, 1000);
@@ -94,7 +106,7 @@ const words = [
 ];
 
 // GAME SETUP
-let timeLeft = 10;
+let timeLeft = 2;
 let countdown = 4;
 let points = 0;
 let randomWord = randomizer(words);
