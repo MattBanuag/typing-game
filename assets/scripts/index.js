@@ -17,6 +17,18 @@ function randomizer(array) {
     }
 }
 
+// Ready Set Go Timer Function
+function readySetGo(countdown) {
+    const countdownTime = setInterval(() =>  {
+        wordDisplay.innerText = --countdown;
+
+        if(countdown == 0) {
+            wordDisplay.innerText = randomWord;
+            clearInterval(countdownTime);
+        }
+    }, 1000);
+}
+
 // Running Timer Function
 function timer(timeLeft) {
     const timer = setInterval(() => {
@@ -52,7 +64,6 @@ function startGame() {
     timer(timeLeft);
     wordInput.disabled = false;
     wordInput.focus();
-    wordDisplay.innerText = randomWord;
 }
 
 // HTML DOCUMENT BRIDGE
@@ -83,6 +94,7 @@ const words = [
 
 // GAME SETUP
 let timeLeft = 10;
+let countdown = 4;
 let points = 0;
 let randomWord = randomizer(words);
 wordInput.value = '';
@@ -90,8 +102,12 @@ wordInput.disabled = true;
 
 // EVENT LISTENERS
 onEvent('click', startBtn, () => {
-    startGame();
-    validate();
+    readySetGo(countdown);
+
+    setTimeout(() => {
+        startGame();
+        validate();
+    }, 4000);
 });
 
 onEvent('click', restartBtn, () => {
