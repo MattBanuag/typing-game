@@ -32,12 +32,26 @@ function readySetGo(countdown) {
 // Save Result Function
 function saveData() {
     const currentDate = new Date().toJSON().slice(0, 10);
-    const score = {
+    const game = {
         score: points,
         date: currentDate
     };
+    
+    localStorage.setItem('Score', game.score);
+    localStorage.setItem('Date', game.date);
+}
 
-    console.log(score);
+// Show Leaderboard Function
+function showData() {
+    for(let i = 0; i < localStorage.length - 1; i++) {
+        scoreTable.innerHTML += `
+        <tr>
+            <td>#1</td>
+            <td>${localStorage.getItem('Score')}</td>
+            <td>${localStorage.getItem('Date')}</td>
+        </tr>
+    `;
+    }
 }
 
 // Running Timer Function
@@ -74,11 +88,13 @@ function validate() {
 // Start Game Function
 function startGame() {
     timer(timeLeft);
+    startBtn.disabled = true;
     wordInput.disabled = false;
     wordInput.focus();
 }
 
 // HTML DOCUMENT BRIDGE
+const scoreTable = select('table');
 const wordDisplay = select('.word-display');
 const timeDisplay = select('.time-display');
 const pointsDisplay = select('.points-display');
@@ -106,14 +122,14 @@ const words = [
 ];
 
 // GAME SETUP
-let timeLeft = 2;
+let timeLeft = 20;
 let countdown = 4;
 let points = 0;
 let randomWord = randomizer(words);
 wordInput.value = '';
 wordInput.disabled = true;
 dialog.showModal();
-
+showData();
 
 // EVENT LISTENERS
 onEvent('click', dialog, function(event) {
