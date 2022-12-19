@@ -8,3 +8,6 @@ A is a simple typing game made with HTML, CSS and JavaScript.
 
 ### Demo
 Checkout the game [here](https://mattbanuag.github.io/typing-game/) 
+
+### Credit
+Design and ideas inspired by [Andre Specht](https://github.com/mrspecht)
