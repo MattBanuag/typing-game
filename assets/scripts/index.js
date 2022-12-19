@@ -54,11 +54,13 @@ function saveData() {
 // Show Leaderboard Function
 function showData() {
     const allGames = JSON.parse(localStorage.getItem('Games'));
+    let index = 0;
+    allGames.sort((a, b)=> b.score > a.score ? 1 : b.score < a.score ? -1 : 0);
 
     for(let game of allGames) {
         scoreTable.innerHTML += `
         <tr>
-            <td>#1</td>
+            <td>#${++index}</td>
             <td>${game.score}</td>
             <td>${game.date}</td>
         </tr>
@@ -134,7 +136,7 @@ const words = [
 ];
 
 // GAME SETUP
-let timeLeft = 100;
+let timeLeft = 10;
 let countdown = 4;
 let points = 0;
 let randomWord = randomizer(words);
