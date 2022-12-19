@@ -29,26 +29,38 @@ function readySetGo(countdown) {
     }, 1000);
 }
 
+// Preparing LocalStorage Function
+function prepStorage() {
+    if(localStorage.getItem('Games') == null) {
+        localStorage.setItem('Games', '[]');
+    }
+}
+
 // Save Result Function
 function saveData() {
     const currentDate = new Date().toJSON().slice(0, 10);
-    const game = {
+    const stats = {
         score: points,
         date: currentDate
     };
-    
-    localStorage.setItem('Score', game.score);
-    localStorage.setItem('Date', game.date);
+
+    // Getting Old Data and Pushing New Data
+    const prevGames = JSON.parse(localStorage.getItem('Games'));
+    prevGames.push(stats);
+
+    localStorage.setItem('Games', JSON.stringify(prevGames));
 }
 
 // Show Leaderboard Function
 function showData() {
-    for(let i = 0; i < localStorage.length - 1; i++) {
+    const allGames = JSON.parse(localStorage.getItem('Games'));
+
+    for(let game of allGames) {
         scoreTable.innerHTML += `
         <tr>
             <td>#1</td>
-            <td>${localStorage.getItem('Score')}</td>
-            <td>${localStorage.getItem('Date')}</td>
+            <td>${game.score}</td>
+            <td>${game.date}</td>
         </tr>
     `;
     }
@@ -122,13 +134,14 @@ const words = [
 ];
 
 // GAME SETUP
-let timeLeft = 20;
+let timeLeft = 100;
 let countdown = 4;
 let points = 0;
 let randomWord = randomizer(words);
 wordInput.value = '';
 wordInput.disabled = true;
 dialog.showModal();
+prepStorage();
 showData();
 
 // EVENT LISTENERS
