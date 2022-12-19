@@ -38,6 +38,14 @@ button {
     color: #FFF;
 }
 
+table {
+    text-align: center;
+}
+
+table td:first-child {
+    color: #3CCF4E;
+}
+
 dialog {
     display: flex;
     flex-direction: column;
