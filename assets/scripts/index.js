@@ -136,7 +136,7 @@ const words = [
 ];
 
 // GAME SETUP
-let timeLeft = 10;
+let timeLeft = 100;
 let countdown = 4;
 let points = 0;
 let randomWord = randomizer(words);
