@@ -17,6 +17,13 @@ function randomizer(array) {
     }
 }
 
+// Showing Leaderboard If Not Empty Function
+function checkLeaderboard(scoreCanvas) {
+    if(localStorage.getItem('Games') == '[]') {
+        scoreCanvas.style.display = 'none';
+    } 
+}
+
 // Ready Set Go Timer Function
 function readySetGo(countdown) {
     const countdownTime = setInterval(() =>  {
@@ -108,6 +115,7 @@ function startGame() {
 }
 
 // HTML DOCUMENT BRIDGE
+const scoreCanvas = select('.score-canvas');
 const scoreTable = select('table');
 const wordDisplay = select('.word-display');
 const timeDisplay = select('.time-display');
@@ -143,6 +151,7 @@ let randomWord = randomizer(words);
 wordInput.value = '';
 wordInput.disabled = true;
 dialog.showModal();
+checkLeaderboard(scoreCanvas);
 prepStorage();
 showData();
 
