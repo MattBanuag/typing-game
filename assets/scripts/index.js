@@ -93,13 +93,15 @@ function timer(timeLeft) {
 }
 
 // Validation Function
-function validate() {
+function validate(words) {
     onEvent('keyup', wordInput, () => {
         if(wordInput.value == randomWord) {
+            const index = words.indexOf(randomWord);
+            words.splice(index, 1);
             wordInput.style.border = 'thin solid #4BB543';
             pointsDisplay.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${points += 1}`;
-            wordDisplay.innerText = randomWord = randomizer(words);
             wordInput.value = '';
+            wordDisplay.innerText = randomWord = randomizer(words);
         } else {
             wordInput.style.border = 'thin solid #FF1E00';
         }
@@ -170,7 +172,7 @@ onEvent('click', startBtn, () => {
 
     setTimeout(() => {
         startGame();
-        validate();
+        validate(words);
     }, 4000);
 });
 
