@@ -1,5 +1,5 @@
 # Typing Game
-A is a simple typing game made with HTML, CSS and JavaScript.
+A simple typing game made with HTML, CSS and JavaScript.
 
 ### Languages
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
